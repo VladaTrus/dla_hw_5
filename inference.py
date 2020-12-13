@@ -23,6 +23,6 @@ with torch.no_grad():
     mels = featurizer(wav)
     prediction = model.inference(mels).squeeze()
 
-result = mulaw.decode(prezz).cpu()
+result = mulaw.decode(prediction).cpu()
 torchaudio.save('result.wav', result, 22050)
  
